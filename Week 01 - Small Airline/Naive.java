@@ -51,7 +51,7 @@ class Naive {
 				// Four passengers seated already; reset counter for next 4 pax
 				counter = 0; 
 				// Move to the next row
-				row = row +1 ; 
+				row = row + 1 ; 
 				// Start from seat A again
 				seatLetter = 'A';
 			}
