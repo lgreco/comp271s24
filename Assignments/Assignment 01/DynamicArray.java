@@ -1,4 +1,16 @@
 /*
+ * In the class below, write two methods:
+ * 
+ * First, method resize() to expand the existing array data by doubling its size.
+ *
+ * Second, method contains(String string) that returns true if String string already
+ * exists in array data and false otherwise.
+ *
+ * Your code must have comments explaining what is done and why it is done in the
+ * way you do it.
+ *
+ * DO NOT USE any tools that require to be imported, ie, do not use the import command.
+ *
  * To save this assignment, make sure you commit your changes to your GitHub repository,
  * following the instructions in Sakai. IF YOU DO NOT COMMIT THE CHANGES, IT IS POSSIBLE THAT
  * YOUR WORK MAY BE LOST AND YOU MAY HAVE TO START ALL OVER AGAIN.
