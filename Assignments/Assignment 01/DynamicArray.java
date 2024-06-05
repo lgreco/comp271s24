@@ -40,4 +40,31 @@ public class DynamicArray {
         this.data[this.position] = string;
         this.position++;
     } // method aa
+
+    /* method that resized the whole array*/
+    private void resize() {
+        // Create a new array with double the size
+        String[] newArray = new String[this.data.length * 2];
+        
+        // Copy all elements from the old array to the new array
+        for (int i = 0; i < this.data.length; i++) {
+            newArray[i] = this.data[i];
+        }
+        
+        // Assign the new array to the data field
+        this.data = newArray;
+    } // method resize
+
+    public boolean contains(String string) {
+        boolean bool = false; // Create a boolean variable to track if the string is present
+        
+        // Search through the array for the string provided
+        for (int i = 0; i < this.position; i++) {
+            if (this.data[i].equals(string)) {
+                bool = true; // Update bool to true if the string is within the array
+            }
+        }
+        return bool; // Return the result in the boolean value
+    } // method contains
+    
 } // class DynamicArray
