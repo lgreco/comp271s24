@@ -1,6 +1,6 @@
 # Grading Notes for Assignment 01: Dynamic Array
 
-In this assignemnt you were given the following starter code and you were asked to complete it (for brevity, mostcomments have been ommitted).
+In this assignemnt you were given the following starter code and you were asked to complete it (for brevity, most comments have been ommitted).
 
 ```java
 public class DynamicArray {
