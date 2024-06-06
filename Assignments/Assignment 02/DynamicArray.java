@@ -35,7 +35,7 @@ public class DynamicArray {
     public void add(String string) {
         // Make sure there is room in array data
         if (this.position == this.data.length) {
-            resize();
+            this.resize();
         }
         // Now array has room for more elements.
         this.data[this.position] = string;
