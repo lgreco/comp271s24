@@ -3,8 +3,11 @@ import java.net.URLConnection;
 import java.util.Scanner;
 import java.io.InputStream;
 
-public class BookReview {
+/*
 
+NO IMPORT STATEMENTS. NO CALLS TO SYSTEM.anything, except for System.out.println or print or printf if needed
+ */ 
+public class BookReview {
 
     /**
      * Establishes a Scanner on a weblink. If the connection can not be made,
