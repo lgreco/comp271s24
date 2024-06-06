@@ -40,7 +40,7 @@ Specifically, you were asked to write three methods:
 
 ## Method `resize`
 
-There best way is to write a **void** method:
+The best way is to write a **void** method:
 
 ```java
 private void resize() {
