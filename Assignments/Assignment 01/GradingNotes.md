@@ -81,7 +81,7 @@ if (this.position == this.data.length)
   this.data = resize();
 ```
 
-Method `resize()` should be parameter-*less*. That's because it is invoked -- in method `add` without any arguments. 
+Method `resize()` should be parameter-*less*. That's because it is invoked -- in method `add` -- without any arguments. 
 
 
 
