@@ -5,26 +5,6 @@ import java.io.InputStream;
 
 public class BookReview {
 
-    /**
-     * Scans a book and places its unique words into a dynamic array
-     * @param url Link to an online book (text only)
-     * @return dynamic array with the contents of the book. If the
-     * connection to the book cannot be established, the method will
-     * return a null.
-     */
-    public static DynamicArray scanBook(String link) {
-        DynamicArray words = null;
-        Scanner bookScanner = connectToBook(link);
-        // connectToBook will return a null if we cannot connect.
-        if (bookScanner != null) {
-            // Connection successful, let's initialize the dynamic array
-            words = new DynamicArray();
-            while (bookScanner.hasNext()) {
-                words.addUnique(bookScanner.next());
-            }
-        }
-        return words;
-    } // method scanBook
 
     /**
      * Establishes a Scanner on a weblink. If the connection can not be made,
