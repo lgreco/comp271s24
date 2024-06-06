@@ -36,7 +36,7 @@ Specifically, you were asked to write three methods:
 * `contains`, and
 * `countOf`
 
-
+---
 
 ## Method `resize`
 
@@ -93,7 +93,7 @@ Method `resize()` should be parameter-*less*. That's because it is invoked -- in
 
 * Syntax errors such as typeless arguments, e.g, `resize(someArray)` instead of `resize(String[] someArray)` or ommitted return statement if method is writen with a return type. 
 
-
+---
 
 ## Method `contains`
 
@@ -136,8 +136,10 @@ public boolean contains(String string) {
 ```
 
 
+---
 
 ### Method `countOf`
+
 This method returns the number of occurences of a given string.
 
 ```java
