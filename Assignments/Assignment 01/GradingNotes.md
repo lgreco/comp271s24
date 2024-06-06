@@ -114,7 +114,7 @@ The while-loop above ends when a match is found or we run out of elements to con
 
 ### Common mistakes in `contains`
 
-* Using a for loop and the `break` statement. Anytime we need to "`break`" out of a for-loop it means that we should have used a while-loop. The `break` command should be used rarely and only if you can justify (with a memo at least 10,000 words long) why it's the only alternative.
+* Using a for-loop and the `break` statement. Anytime we need to "`break`" out of a for-loop it means that we should have used a while-loop. The `break` command should be used rarely and only if you can justify (with a memo at least 10,000 words long) why it's the only alternative.
 
 * Running the while-loop to the end of the array, i.e.,<br/>
 ``while(!found && i < this.data.length)``<br/>
