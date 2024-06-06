@@ -110,3 +110,53 @@ public boolean contains(String string) {
 } // method contains
 ```
 The while-loop above ends when a match is found or we run out of elements to consider, whichever happens first. Notice that the loop does not run all the way to the end of the array (`i<this.data.length`) but stops when it reaches `this.position`. That's important because the underlying array has values up to `this.data[position]`. Everything beyond that are `null` values.
+
+
+### Common mistakes in `contains`
+
+* Using a for loop and the `break` statement. Anytime we need to "`break`" out of a for-loop it means that we should have used a while-loop. The `break` command should be used rarely and only if you can justify (with a memo at least 10,000 words long) why it's the only alternative.
+
+* Running the while-loop to the end of the array, i.e.,<br/>
+``while(!found && i < this.data.length)``<br/>
+instead of <br/>
+``while(!found && i < this.position)``
+
+* Forgetting to increment the array index inside the loop (`i++`)
+
+* (Silly mistake that Leo *always* makes): naming the boolean variable inside the method with the same name as the method itself. It works but it's confusing when you see code like the following:
+```java
+public boolean contains(String string) {
+  boolean contains = false;
+  int i = 0;
+  while (!contains && i < this.position) {
+    contains = string.equals(this.data[i++]);
+  }
+  return contains;
+} // method contains
+```
+
+
+
+### Method `countOf`
+This method returns the number of occurences of a given string.
+
+```java
+public int countOf(String string) {
+  int count = 0;
+  for (int i = 0; i < this.position; i++) {
+    count = (this.data[i].equals(string)) ? count+1 : count;
+  }
+  return count;
+} // method countOf
+```
+In contrast with the `contains` method, `countOf` must go through every value in the array (up to `this.position`, since everything after that is `null`).
+
+My implementation above uses the ternary operator (`?:;`). That's purely a stylistic choice -- I just like it too much.
+
+
+### Common mistakes in `countOf`
+
+* Comparing object references, i.e.,<br/>
+``if (this.data[i] == string)``<br/>
+instead of object values<br/>
+``if(this.data[i].equals(string))``
