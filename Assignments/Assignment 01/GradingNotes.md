@@ -91,6 +91,8 @@ Method `resize()` should be parameter-*less*. That's because it is invoked -- in
 
 * Writing the method with parameters, e..g., `resize(String[] someArray)`. Again, we must look at how the method is invoked. If there are no argumenents in the invocation, we cannot arbitrarily decide to add parameters to the method.
 
+* Use of external tools such as `System.arrayCopy` or class `Arrays`.
+
 * Syntax errors such as typeless arguments, e.g, `resize(someArray)` instead of `resize(String[] someArray)` or ommitted return statement if method is writen with a return type. 
 
 ---
