@@ -63,12 +63,12 @@ public class DynamicArray {
      * @return true if string found in array; false otherwise.
      */
     public boolean contains(String string) {
-        boolean contains = false;
+        boolean found = false;
         int i = 0;
-        while (!contains && i < this.position) {
-            contains = string.equals(this.data[i++]);
+        while (!found && i < this.position) {
+            found = string.equals(this.data[i++]);
         }
-        return contains;
+        return found;
     } // method contains
 
     /**
