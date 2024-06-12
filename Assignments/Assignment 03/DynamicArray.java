@@ -1,5 +1,5 @@
 
-public class DynamicArray {
+public class DynamicArray implements BasicTools {
 
     /** The underlying array for this object */
     private String[] data;
@@ -97,5 +97,6 @@ public class DynamicArray {
         }
         return canBeAdded;
     } // method addUnique
+
     
 } // class DynamicArray
