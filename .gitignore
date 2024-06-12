@@ -8,3 +8,9 @@
 
 # Log file
 *.log
+
+# Solutions folder
+Solutions/*
+
+# Sandbox space
+Sandbox/*
