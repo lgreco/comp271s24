@@ -6,13 +6,14 @@ import java.io.InputStream;
 /*
 NO IMPORT STATEMENTS. NO CALLS TO SYSTEM.anything, except for 
 System.out.println or print or printf as needed.
- */ 
+ */
 public class BookReview_Solution {
 
     /**
      * Establishes a Scanner on a weblink. If the connection can not be made,
      * the method returns a null. That's how we can tell something went wrong
      * and decide what to do next.
+     * 
      * @param link String with link to website with text to scan
      * @return Scanner connected to the website or null if connection cannot be made
      */
@@ -39,20 +40,19 @@ public class BookReview_Solution {
         DynamicArray uniqueWords = new DynamicArray();
         Scanner book = connectToBook(bookLink);
         if (book != null) {
-        while (book.hasNext()) {
-            boolean added = uniqueWords.addUnique(book.next());
+            while (book.hasNext()) {
+                boolean added = uniqueWords.addUnique(book.next());
+            }
+            book.close(); // be nice
         }
-        book.close(); // be nice
-    }
         return uniqueWords.getPosition();
     } // method countUniqueWords
-
 
     public static void main(String[] args) {
         // https://gutenberg.org/cache/epub/98/pg98.txt is a link
         // to the text of "Tale of Two Cities" from Project Gutenberg
         String book = "https://gutenberg.org/cache/epub/98/pg98.txt";
-        
+
         int uniqueWords = countUniqueWords(book);
         System.out.printf("\n\nFound %,d unique words.\n", uniqueWords);
     } // method main
