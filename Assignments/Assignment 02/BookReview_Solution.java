@@ -38,9 +38,12 @@ public class BookReview_Solution {
     public static int countUniqueWords(String bookLink) {
         DynamicArray uniqueWords = new DynamicArray();
         Scanner book = connectToBook(bookLink);
+        if (book != null) {
         while (book.hasNext()) {
             boolean added = uniqueWords.addUnique(book.next());
         }
+        book.close(); // be nice
+    }
         return uniqueWords.getPosition();
     } // method countUniqueWords
 
