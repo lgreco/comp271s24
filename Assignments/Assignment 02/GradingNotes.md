@@ -47,7 +47,7 @@ It will not work because `position` is a private field and cannot be accessed fr
 public int getPosition() { return this.position; }
 ```
 
-and change the code above to 
+and change the code earlier to 
 
 ```java
 DynamicArray uniqueWords = new DynamicArray();
