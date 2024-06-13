@@ -1,4 +1,3 @@
-
 public class DynamicArray implements BasicTools {
 
     /** The underlying array for this object */
@@ -28,7 +27,7 @@ public class DynamicArray implements BasicTools {
     } // default constructor
 
     /**
-     * Adds a new item to array data after ensurig there is 
+     * Adds a new item to array data after ensuring there is 
      * sufficient room by resizing the array if necessary.
      * @param string new item to add to array
      */
@@ -44,12 +43,12 @@ public class DynamicArray implements BasicTools {
 
     /**
      * Increases the size of the underlying array by a specific factor.
-     * A larger temporary array is crated, contents of this.data are
+     * A larger temporary array is created, contents of this.data are
      * copied over up, and the temp then replaces this.data.
      */
     private void resize() {
         // +1 below for safety in case the (int) cancels the increment
-        int newSize = 1+(int)((1.0+GROWTH_FACTOR)*this.data.length);
+        int newSize = 1 + (int)((1.0 + GROWTH_FACTOR) * this.data.length);
         String[] temp = new String[newSize];
         for (int i = 0; i < this.data.length; i++) {
             temp[i] = this.data[i];
@@ -79,7 +78,7 @@ public class DynamicArray implements BasicTools {
     public int countOf(String string) {
         int count = 0;
         for (int i = 0; i < this.position; i++) {
-            count = (this.data[i].equals(string)) ? count+1 : count;
+            count = (this.data[i].equals(string)) ? count + 1 : count;
         }
         return count;
     } // method countOf
@@ -91,12 +90,40 @@ public class DynamicArray implements BasicTools {
      * @return true if addition was successful, false otherwise (indicating a duplicate)
      */
     public boolean addUnique(String string) {
-        boolean canBeAdded = ! this.contains(string);
+        boolean canBeAdded = !this.contains(string);
         if (canBeAdded) {
             this.add(string);
         }
         return canBeAdded;
     } // method addUnique
 
-    
+    /**
+     * Determines if this DynamicArray intersects the specified DynamicArray (other).
+     * This method checks if there is any common element between the two arrays.
+     * 
+     * @param other DynamicArray to determine if it intersects with this object
+     * @return true if two DynamicArrays have a common entry; false otherwise.
+     */
+    @Override
+    public boolean intersects(DynamicArray other) {
+        return intersectsHelper(other, 0);
+    }
+
+    /**
+     * A helper method to recursively check for intersection without using loops.
+     * 
+     * @param other  The other DynamicArray to check for common elements
+     * @param index  The current index being checked in this DynamicArray
+     * @return true if a common element is found; false otherwise
+     */
+    private boolean intersectsHelper(DynamicArray other, int index) {
+        if (index >= this.position) {
+            return false;
+        }
+        if (other.contains(this.data[index])) {
+            return true;
+        }
+        return intersectsHelper(other, index + 1);
+    }
+
 } // class DynamicArray
