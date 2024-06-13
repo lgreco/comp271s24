@@ -97,5 +97,9 @@ public class DynamicArray {
         }
         return canBeAdded;
     } // method addUnique
+
+    public int getPosition() {
+        return this.position;
+    }
     
 } // class DynamicArray
