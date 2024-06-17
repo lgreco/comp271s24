@@ -6,7 +6,7 @@ import java.io.InputStream;
 /*
 NO IMPORT STATEMENTS. NO CALLS TO SYSTEM.anything, except for 
 System.out.println or print or printf as needed.
- */ 
+ */
 public class BookReview {
 
     /**
@@ -29,9 +29,33 @@ public class BookReview {
         return bookScanner;
     } // method connecttoBook
 
+    /**
+     * Returns the count of unique words in a text document accessible as a web link
+     * 
+     * @param bookLink String web link to text document to scan
+     * @return int with count of unique words found
+     */
+    public static int countUniqueWords(String bookLink) {
+        SimpleArray uniqueWords = new SimpleArray();
+        Scanner book = connectToBook(bookLink);
+        if (book != null) {
+            while (book.hasNext()) {
+                String word = book.next();
+                if (!uniqueWords.contains(word)) {
+                    uniqueWords.add(word);
+                }
+            }
+            book.close(); // be nice
+        }
+        return uniqueWords.size();
+    } // method countUniqueWords
+
     public static void main(String[] args) {
         // https://gutenberg.org/cache/epub/98/pg98.txt is a link
         // to the text of "Tale of Two Cities" from Project Gutenberg
         String book = "https://gutenberg.org/cache/epub/98/pg98.txt";
+
+        int uniqueWords = countUniqueWords(book);
+        System.out.printf("\n\nFound %,d unique words.\n", uniqueWords);
     } // method main
 } // class BookReview
