@@ -1,10 +1,22 @@
 /*
+ * In the class below, write two methods:
+ * 
+ * First, method resize() to expand the existing array data by doubling its size.
+ *
+ * Second, method contains(String string) that returns true if String string already
+ * exists in array data and false otherwise.
+ *
+ * Your code must have comments explaining what is done and why it is done in the
+ * way you do it.
+ *
+ * DO NOT USE any tools that require to be imported, ie, do not use the import command.
+ *
  * To save this assignment, make sure you commit your changes to your GitHub repository,
  * following the instructions in Sakai. IF YOU DO NOT COMMIT THE CHANGES, IT IS POSSIBLE THAT
  * YOUR WORK MAY BE LOST AND YOU MAY HAVE TO START ALL OVER AGAIN.
  */
 public class DynamicArray {
-    
+
     /** The underlying array for this object */
     private String[] data;
 
@@ -14,57 +26,34 @@ public class DynamicArray {
     /** Constant with default size */
     private static final int DEFAULT_SIZE = 10;
 
-    /** basic constructor for the object
-     * @param size initial size 
+    /**
+     * Basic constructor for the object
+     * @param size initial size of array data
      */
-    public DynamicArray(int size){
+    public DynamicArray(int size) {
         this.data = new String[size];
         this.position = 0;
     } // basic constructor
 
-    /** Default consructor*/
-    public DynamicArray(){
+    /** Default constructor */
+    public DynamicArray() {
         this(DEFAULT_SIZE);
     } // default constructor
 
-    /** adds a new item to array data after ensuring there is
-     * sufficent room by resizing the array if necessary 
-     * @param string new item to add a array
+    /**
+     * Adds a new item to array data after ensurig there is 
+     * sufficient room by resizing the array if necessary.
+     * @param string new item to add to array
      */
-    public void add(String string){
-        //Make sure there is room in array data
-        if(this position == this.data.length){
+    public void add(String string) {
+        // Make sure there is room in array data
+        if (this.position == this.data.length) {
             resize();
         }
         // Now array has room for more elements.
         this.data[this.position] = string;
         this.position++;
-    } // method aa
-
-    /* method that resized the whole array*/
-    private void resize() {
-        // Create a new array with double the size
-        String[] newArray = new String[this.data.length * 2];
-        
-        // Copy all elements from the old array to the new array
-        for (int i = 0; i < this.data.length; i++) {
-            newArray[i] = this.data[i];
-        }
-        
-        // Assign the new array to the data field
-        this.data = newArray;
-    } // method resize
-
-    public boolean contains(String string) {
-        boolean bool = false; // Create a boolean variable to track if the string is present
-        
-        // Search through the array for the string provided
-        for (int i = 0; i < this.position; i++) {
-            if (this.data[i].equals(string)) {
-                bool = true; // Update bool to true if the string is within the array
-            }
-        }
-        return bool; // Return the result in the boolean value
-    } // method contains
+    } // method add
     
+
 } // class DynamicArray
