@@ -97,5 +97,14 @@ public class DynamicArray {
         }
         return canBeAdded;
     } // method addUnique
+
+    /**
+     * Accessor for field position
+     * @return int current value of position which essentially
+     * reports the number of items stored in the dynamci array.
+     */
+    public int getPosition() {
+        return this.position;
+    } // method getPosition
     
 } // class DynamicArray
