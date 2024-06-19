@@ -8,7 +8,7 @@ You can test your work by running `SimpleTesting.main`.
 
 ## Search for a station
 
-Using classes `Station` and `TrainLine` in folder `Week_04`, write a method called `contains` that returns true if a station with a specified name exists in a `TrainLine` object and false otherwise.
+Using classes `Station` and `TrainLine` in folder `Week_05`, write a method called `contains` that returns true if a station with a specified name exists in a `TrainLine` object and false otherwise.
 
 ## Design (specify) the string representation of `TrainLine`
 
