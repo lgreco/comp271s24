@@ -97,6 +97,21 @@ public class DynamicArray implements BasicTools {
         }
         return canBeAdded;
     } // method addUnique
-
+    
+    /**
+     * Iterates through the calling 'DynamicArray'
+     * @param intersects with this object (other DynamicArray)
+     * @return if a common element is seen returns true if not, returns false.
+     */
+    public booelean intersects(DynamicArray other) {
+        int i = 0;
+        while(i < this.position) {
+            if(other.contains(this.data[i])) {
+                return true;
+            }
+            i++;
+        }
+        return false;
+    }// method intersects 
     
 } // class DynamicArray
