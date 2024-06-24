@@ -103,7 +103,7 @@ public class DynamicArray implements BasicTools {
      * @param intersects with this object (other DynamicArray)
      * @return if a common element is seen returns true if not, returns false.
      */
-    public booelean intersects(DynamicArray other) {
+    public boolean intersects(DynamicArray other) {
         int i = 0;
         while(i < this.position) {
             if(other.contains(this.data[i])) {
