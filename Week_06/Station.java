@@ -46,5 +46,9 @@ public class Station {
     public Station getNext() {
         return this.next;
     } // method getNext()
+
+    public String getName() {
+        return this.name;
+    }
     
 } // class Station

@@ -10,12 +10,12 @@ public class TrainLine {
     /** Current number of stations in this object */
     private int numberOfStations;
 
-    
+    /** Default constructor - redundant but good to show intent */
     public TrainLine() {
         this.head = null;
         this.tail = null;
         this.numberOfStations = 0;
-    }
+    } // default constructor
 
 
     /**
@@ -46,5 +46,17 @@ public class TrainLine {
             this.tail.setNext(newStation); // add new station after tail station
             this.tail = newStation; // Designate newly added station as tail station
         }
+        // Update station counter
+        this.numberOfStations++;
     } // method addStation
+
+
+    public int getNumberOfStations() {
+        return this.numberOfStations;
+    }
+
+
+    /** How to represent a train line as a string */
+
+    
 }
