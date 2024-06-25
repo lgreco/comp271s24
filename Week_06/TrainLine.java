@@ -1,7 +1,22 @@
-public class TrainLine {
+public class TrainLine { 
     
+    /** Points to first station in the train line */
     private Station head;
+
+    /** Points to the last station and facilitates O(1) performance when adding 
+     * a new station at the end of the line */
     private Station tail;
+
+    /** Current number of stations in this object */
+    private int numberOfStations;
+
+    
+    public TrainLine() {
+        this.head = null;
+        this.tail = null;
+        this.numberOfStations = 0;
+    }
+
 
     /**
      * Add a new station at the end of this trainline. The method creates
