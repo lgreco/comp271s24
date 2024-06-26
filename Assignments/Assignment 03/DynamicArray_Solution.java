@@ -1,5 +1,5 @@
 
-public class DynamicArray {
+public class DynamicArray_Solution implements BasicTools {
 
     /** The underlying array for this object */
     private String[] data;
@@ -17,13 +17,13 @@ public class DynamicArray {
      * Basic constructor for the object
      * @param size initial size of array data
      */
-    public DynamicArray(int size) {
+    public DynamicArray_Solution(int size) {
         this.data = new String[size];
         this.position = 0;
     } // basic constructor
 
     /** Default constructor */
-    public DynamicArray() {
+    public DynamicArray_Solution() {
         this(DEFAULT_SIZE);
     } // default constructor
 
@@ -99,12 +99,49 @@ public class DynamicArray {
     } // method addUnique
 
     /**
-     * Accessor for field position
-     * @return int current value of position which essentially
-     * reports the number of items stored in the dynamci array.
+     * Imprements BasicTools.intersect to return true if two DynamicArray
+     * objects intersect and false otherwise.
+     * 
+     * @param other DynamicArray object to compare to this DynamicArray object
+     * @return true if there two DynamicArray objects have a common element, false otherwise
      */
-    public int getPosition() {
-        return this.position;
-    } // method getPosition
+    public boolean intersects(DynamicArray_Solution other) {
+        /*
+         * Guard statement -- it stops the method from executing if either object is
+         * null or empty. A guard statement is an acceptable reason to have a second
+         * return statement in a method.
+         */
+        if (this == null || other == null || this.position == 0 || other.position == 0) {
+            return false;
+        }
+        /* 
+         * Initialize the return variable with a comparison to the two objects we 
+         * want to check for an intersection. If the two objects are the same, then
+         * they intersect by definition and there is no need to compare them 
+         * element by element.
+         */
+        boolean intersection = (this == other);
+        // Prepare to traverse the underlying array of this object
+        int thisIndex = 0;
+        // Keep traversing this object until an intersection is found or we
+        // run out of elements in it.
+        while (!intersection && thisIndex < this.position) {
+            // Prepare to traverse the underlying array of the other object
+            int otherIndex = 0;
+            // Keep traversing the other object until an intersection is found or we
+            // run out of elements in it.
+            while (!intersection && otherIndex < other.position) {
+                // Compare the current elements between this and the other object.
+                intersection = (this.data[thisIndex].equals(other.data[otherIndex]));
+                // Prepare to move to the next element in the other object
+                otherIndex++;
+            }
+            // Prepare to move to the next element in this object
+            thisIndex++;
+        }
+        // Done!
+        return intersection;
+    } // method intersects
+
     
 } // class DynamicArray
