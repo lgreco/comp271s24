@@ -6,6 +6,8 @@ Your code must be compliant with the Programmers Pact, as much as possible.
 
 You can test your work by running `SimpleTesting.main`.
 
+Then rewrite `TrainLine.contains` to take advantage of `TrainLine.indexOf`. You earn bragging rights if your revised `contains` has only one statement it it.
+
 
 ## Search for the position of a station
 
