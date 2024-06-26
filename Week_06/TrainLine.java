@@ -1,10 +1,12 @@
-public class TrainLine { 
-    
+public class TrainLine {
+
     /** Points to first station in the train line */
     private Station head;
 
-    /** Points to the last station and facilitates O(1) performance when adding 
-     * a new station at the end of the line */
+    /**
+     * Points to the last station and facilitates O(1) performance when adding
+     * a new station at the end of the line
+     */
     private Station tail;
 
     /** Current number of stations in this object */
@@ -17,7 +19,6 @@ public class TrainLine {
         this.numberOfStations = 0;
     } // default constructor
 
-
     /**
      * Add a new station at the end of this trainline. The method creates
      * a new station object, first, with the given name. Then it checks to
@@ -25,8 +26,8 @@ public class TrainLine {
      * the head station. If this line has a head station, the method begins
      * traversing this line from its head station, following the next points
      * untils it finds a station whose next is null. That station, by definition
-     * is presently the last station in the line. The new station is added after 
-     * that last station. 
+     * is presently the last station in the line. The new station is added after
+     * that last station.
      * 
      * @param name String with name of new station to add
      */
@@ -35,7 +36,7 @@ public class TrainLine {
         Station newStation = new Station(name);
         // Check if this trainline has a head station yet or not
         if (this.head == null) {
-            // There is no head station in this trainline. Make the 
+            // There is no head station in this trainline. Make the
             // new station, just created, the head station and also
             // the tail station of the line and we are done.
             this.head = newStation;
@@ -50,13 +51,56 @@ public class TrainLine {
         this.numberOfStations++;
     } // method addStation
 
-
     public int getNumberOfStations() {
         return this.numberOfStations;
     }
 
+    /** THIS METHOD IS A STUB ... REPLACE IT WITH YOUR NICE CODE. */
+    public boolean contains(String stationName) {
+        return true; // method stub
+    }
+
+    /**
+     * Inserts a new station after an existing one.
+     * 
+     * @param existingStationName String with name of existing station that we
+     *                            are adding a station after.
+     * @param stationToAdd        String with name of new station to add.
+     * @return true if insertion is successful, false if there is a problem.
+     *         Potential problems inlude the presence of the station we are trying
+     *         to add, the absence of the station we are trying to add after, and
+     *         null/empty strings.
+     */
+    public boolean addAfter(String existingStationName, String stationToAdd) {
+        boolean success = false;
+        // Check if the station to add is already present in the TrainLine
+        // object or if the supplied strings are null or empty.
+        if (!this.contains(stationToAdd)
+                && existingStationName != null && existingStationName.length() > 0
+                && stationToAdd != null && stationToAdd.length() > 0) {
+            // Traverse the TrainLine, looking for the existing station
+            Station current = this.head;
+            while (current != null) {
+                // Check if the current station is the one we are looking for.
+                // If the intended station is not found, we skill the if block,
+                // the while-loop eventually ends, and we return the intial
+                // value of success which is still false.
+                if (current.getName().equals(existingStationName)) {
+                    // Intended station found, time to get things going, first
+                    // by creating the new station to insert.
+                    Station newStation = new Station(stationToAdd);
+                    // Make the new station point to where the existing station points
+                    newStation.setNext(current.getNext());
+                    // Make the existing station point to the new station
+                    current.setNext(newStation);
+                    // Update the return variable to indicate a successful insertion
+                    success = true;
+                }
+            }
+        }
+        return success;
+    } // method addAfter
 
     /** How to represent a train line as a string */
 
-    
 }
