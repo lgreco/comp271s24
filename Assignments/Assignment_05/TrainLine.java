@@ -1,5 +1,7 @@
 public class TrainLine {
 
+    private static final String EMPTY_LINE = "This line is empty.";
+
     /** Points to first station in the train line */
     private Station head;
 
@@ -51,14 +53,30 @@ public class TrainLine {
         this.numberOfStations++;
     } // method addStation
 
+    /**
+     * Accessor for this.numberOfStations
+     * 
+     * @return int with number of stations presently in this TrainLine
+     */
     public int getNumberOfStations() {
         return this.numberOfStations;
-    }
+    } // method getNumberOfStations
 
-    /** THIS METHOD IS A STUB ... REPLACE IT WITH YOUR NICE CODE. */
+    /**
+     * Determines if a station with a specific name is present in this TrainLine
+     * 
+     * @param stationName String with station name to search for
+     * @return true if station found; false otherwise or if object has no stations.
+     */
     public boolean contains(String stationName) {
-        return true; // method stub
-    }
+        boolean found = false;
+        Station current = this.head;
+        while (!found && current != null) {
+            found = current.getName().equals(name);
+            current = current.getNext();
+        }
+        return found;
+    } // method contains
 
     /**
      * Inserts a new station after an existing one.
@@ -101,5 +119,27 @@ public class TrainLine {
         return success;
     } // method addAfter
 
+    /**
+     * Textual representation of this TrainLine
+     */
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        if (this.head == null) {
+            sb.append(EMPTY_LINE);
+        } else {
+            Station current = this.head;
+            while (current.hasNext()) {
+                sb.append(String.format("[ %s ] --> ", current.getName()));
+                current = current.getNext()
+            }
+            // Treat the last station in the line
+            sb.append(String.format("[ %s ]", tail.getName()));
+        }
+        return sb.toString();
+    } // method toString
 
+    /** STUB FOR indexOf */
+    public int indexOf(String name) {
+        return -1;
+    } // method indexOf
 }
