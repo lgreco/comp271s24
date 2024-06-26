@@ -44,4 +44,21 @@ public class TrainLine {
             currentStation.setNext(newStation);
         }
     } // method addStation
+    /**
+     * Check if the station name exists in the trainline
+     * 
+     * name String with the name of the station to search for it will return 
+     * true if it exists, and false if not. 
+     * 
+     */
+    public boolean contain(String name) {
+        Station currentStation = this.head;
+        while (currentStation != null) {
+            if currentStation.name.equal(name)) {
+                return true;
+            }
+            currentStation = currentStation.getNext();
+        }
+        return false;
+    }
 }
