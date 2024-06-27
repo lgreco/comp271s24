@@ -69,13 +69,8 @@ public class TrainLine {
      * @return true if station found; false otherwise or if object has no stations.
      */
     public boolean contains(String stationName) {
-        boolean found = false;
-        Station current = this.head;
-        while (!found && current != null) {
-            found = current.getName().equals(name);
-            current = current.getNext();
-        }
-        return found;
+        // Use indexOf method to determine presence of station
+        return this.indexOf(stationName) != -1;
     } // method contains
 
     /**
@@ -100,8 +95,8 @@ public class TrainLine {
             Station current = this.head;
             while (current != null) {
                 // Check if the current station is the one we are looking for.
-                // If the intended station is not found, we skill the if block,
-                // the while-loop eventually ends, and we return the intial
+                // If the intended station is not found, we skip the if block,
+                // the while-loop eventually ends, and we return the initial
                 // value of success which is still false.
                 if (current.getName().equals(existingStationName)) {
                     // Intended station found, time to get things going, first
@@ -111,9 +106,16 @@ public class TrainLine {
                     newStation.setNext(current.getNext());
                     // Make the existing station point to the new station
                     current.setNext(newStation);
+                    // Update tail if necessary
+                    if (current == this.tail) {
+                        this.tail = newStation;
+                    }
                     // Update the return variable to indicate a successful insertion
                     success = true;
+                    this.numberOfStations++;
+                    break;
                 }
+                current = current.getNext();
             }
         }
         return success;
@@ -130,7 +132,7 @@ public class TrainLine {
             Station current = this.head;
             while (current.hasNext()) {
                 sb.append(String.format("[ %s ] --> ", current.getName()));
-                current = current.getNext()
+                current = current.getNext();
             }
             // Treat the last station in the line
             sb.append(String.format("[ %s ]", tail.getName()));
@@ -140,6 +142,42 @@ public class TrainLine {
 
     /** STUB FOR indexOf */
     public int indexOf(String name) {
+        // Initialize index counter
+        int index = 0;
+        // Start from the head of the TrainLine
+        Station current = this.head;
+        // Traverse the TrainLine
+        while (current != null) {
+            // Check if the current station matches the given name
+            if (current.getName().equals(name)) {
+                // Return the index if a match is found
+                return index;
+            }
+            // Move to the next station
+            current = current.getNext();
+            // Increment the index counter
+            index++;
+        }
+        // Return -1 if the station is not found
         return -1;
     } // method indexOf
+
+    /** Appends another TrainLine to this one */
+    public void append(TrainLine other) {
+        // Check if the other TrainLine is not empty
+        if (other.head == null) return;
+        // Check if this TrainLine is empty
+        if (this.head == null) {
+            // Make this TrainLine point to the other TrainLine
+            this.head = other.head;
+            this.tail = other.tail;
+        } else {
+            // Attach the other TrainLine to the end of this TrainLine
+            this.tail.setNext(other.head);
+            // Update the tail to be the tail of the other TrainLine
+            this.tail = other.tail;
+        }
+        // Update the station counter
+        this.numberOfStations += other.numberOfStations;
+    } // method append
 }
