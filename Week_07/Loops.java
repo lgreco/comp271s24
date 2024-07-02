@@ -29,6 +29,6 @@ public class Loops {
         // introduce a loop
         wil.setNext(loy);
         loopy = redLineSB.hasLoop();
-        System.out.printf("\n\nLoop present: %s", loopy);
+        System.out.printf("\n\nLoop present: %s\n", loopy);
     }
 }

@@ -24,6 +24,18 @@ public class TrainLine {
         return this.numberOfStations;
     } // method getNumberOfStations
 
+    /**
+     * Add a new station at the end of this trainline. The method creates
+     * a new station object, first, with the given name. Then it checks to
+     * if this line has a head station yet; if not, the new station becomes
+     * the head station. If this line has a head station, the method begins
+     * traversing this line from its head station, following the next points
+     * untils it finds a station whose next is null. That station, by definition
+     * is presently the last station in the line. The new station is added after
+     * that last station.
+     * 
+     * @param name String with name of new station to add
+     */
     public void addStation(String name) {
         // Create a new station object with the given name
         Station newStation = new Station(name);
@@ -33,9 +45,9 @@ public class TrainLine {
 
     /**
      * Add a new station at the end of this trainline. The method takes
-     * a station object and it checks if this line has a head station yet;
-     * if not, the new station becomes the head station. If this line has a
-     * head station, the method places the new station after the last station
+     * a station object and it checks if this line has a head station yet; 
+     * if not, the new station becomes the head station. If this line has a 
+     * head station, the method places the new station after the last station 
      * in the line and marks that new station the last station in the line.
      * 
      * @param station Station object to insert at teh end of the line
