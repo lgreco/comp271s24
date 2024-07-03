@@ -1,7 +1,7 @@
 public class Loops {
     public static void main(String[] args) {
 
-        TrainLine redLineSB = new TrainLine();
+        TrainLine_Solution redLineSB = new TrainLine_Solution();
         
         Station how = new Station("Howard");
         Station jar = new Station("Jarvis");

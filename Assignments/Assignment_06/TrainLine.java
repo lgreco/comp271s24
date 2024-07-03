@@ -45,9 +45,9 @@ public class TrainLine {
 
     /**
      * Add a new station at the end of this trainline. The method takes
-     * a station object and it checks if this line has a head station yet; 
-     * if not, the new station becomes the head station. If this line has a 
-     * head station, the method places the new station after the last station 
+     * a station object and it checks if this line has a head station yet;
+     * if not, the new station becomes the head station. If this line has a
+     * head station, the method places the new station after the last station
      * in the line and marks that new station the last station in the line.
      * 
      * @param station Station object to insert at teh end of the line
@@ -94,11 +94,6 @@ public class TrainLine {
         return loopFound;
     } // method hasLoop
 
-    /** THIS METHOD IS A STUB ... REPLACE IT WITH YOUR NICE CODE. */
-    public boolean contains(String stationName) {
-        return true; // method stub
-    }
-
     /**
      * Inserts a new station after an existing one.
      * 
@@ -139,5 +134,48 @@ public class TrainLine {
         }
         return success;
     } // method addAfter
+
+    /**
+     * Finds the position of a station with the specified name. If the station
+     * is not present in the train line, the reported position is -1.
+     * 
+     * @param name String with name of station to look for in this train line.
+     * @return int position of named station in train line or -1 if station
+     *         is not present or the trainline is empty.
+     */
+    public int indexOf(String name) {
+        // Return value
+        int position = -1;
+        // Make sure line is not empty first
+        if (this.head != null) {
+            // Counts the stations as we traverse the line.
+            int counter = 0;
+            // Begin traversing the line from start
+            Station current = this.head;
+            while (position < 0 && current != null) {
+                // Update position if the current station matches the specified name
+                position = (current.getName().equals(name)) ? counter : position;
+                // Update counter
+                counter++;
+                // Advance station
+                current = current.getNext();
+            }
+        }
+        return position;
+    } // method indexOf
+
+    /**
+     * Determines if a station with a specific name is present in this TrainLine. 
+     * Method contains is essentially a wrapper method for indexOf. If a station 
+     * is present in this trainline its indexOf will be > -1. Therefore, any
+     * indexOf value > -1 indicates that the named station is contained in the
+     * trainline.
+     * 
+     * @param stationName String with station name to search for
+     * @return true if station found; false otherwise or if object has no stations.
+     */
+    public boolean contains(String stationName) {
+        return this.indexOf(stationName) > -1;
+    } // method contains
 
 } // class TrainLine
