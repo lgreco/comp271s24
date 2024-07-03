@@ -140,6 +140,16 @@ public class TrainLine {
 
     /** STUB FOR indexOf */
     public int indexOf(String name) {
+        Station (current = this.head;
+        int index = 0;
+        while (current != null){
+            if (current.getName().equals(name)){
+                return index;
+            }
+            current = current.getNext();
+            index++;
+        }
         return -1;
     } // method indexOf
 }
+//DONE
