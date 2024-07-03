@@ -178,4 +178,26 @@ public class TrainLine {
         return this.indexOf(stationName) > -1;
     } // method contains
 
+    /**
+     * Accessor for this.head 
+     * This accessor is necessary so that we can tell if other similar objects
+     * have a null head or not. 
+     * 
+     * @return Station this.head
+     */
+    public Station getHead() {
+        return this.head;
+    } // method getHead
+
+    /**
+     * Accessor for a TrainLine's head station. Since the field is private,
+     * it cannot be accessed directly.
+     * @param other
+     */
+    public void append(TrainLine other) {
+        if (this.getHead() != null && other.getHead() != null) {
+            this.tail.setNext(other.getHead());
+        }
+    } // method append
+
 } // class TrainLine
