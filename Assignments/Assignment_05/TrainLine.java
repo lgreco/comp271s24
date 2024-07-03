@@ -69,13 +69,9 @@ public class TrainLine {
      * @return true if station found; false otherwise or if object has no stations.
      */
     public boolean contains(String stationName) {
-        boolean found = false;
-        Station current = this.head;
-        while (!found && current != null) {
-            found = current.getName().equals(name);
-            current = current.getNext();
-        }
-        return found;
+        return indexOf(stationName) != -1;
+
+        //updated to use the indexOf method
     } // method contains
 
     /**
@@ -118,6 +114,24 @@ public class TrainLine {
         }
         return success;
     } // method addAfter
+    
+// Appends another train line to this one.
+
+
+public void append(TrainLine other) {
+    if (other != null && other.head != null) {
+        if (this.head == null) {
+            this.head = other.head;
+            this.tail = other.tail;
+        
+        } else {
+            this.tail.setNext(other.head);
+            this.tail = other.tail;
+        }
+        this.numberOfStations += other.numberOfStations;
+    }
+} //method append
+
 
     /**
      * Textual representation of this TrainLine
