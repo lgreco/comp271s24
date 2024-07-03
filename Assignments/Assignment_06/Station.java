@@ -13,7 +13,7 @@ public class Station {
 
     /**
      * A simple constructor to instantiate a Station object with a given name
-     * but unknown (null) next station.
+     * but unknown (null) next and prev(ious) stations.
      * @param name
      */
     public Station(String name) {
@@ -32,12 +32,7 @@ public class Station {
         this.prev = prev;
     } // method setPrev
 
-    /**
-     * Predicate accessor for next
-     * 
-     * @return true if this station points to another station indicated by
-     *         this.next; false if this.next==null.
-     */
+    /** Predicate accessor for next */
     public boolean hasNext() {
         return this.next != null;
     } // method hasNext
@@ -55,11 +50,11 @@ public class Station {
     /** Accessor for prev */ 
     public Station getPrev() {
         return this.prev;
-    }
+    } // method getPrev
 
     /** Mutator for Name */
     public String getName() {
         return this.name;
-    }
+    } // method getName
     
 } // class Station
