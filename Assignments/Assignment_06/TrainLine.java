@@ -190,13 +190,31 @@ public class TrainLine {
     } // method getHead
 
     /**
-     * Accessor for a TrainLine's head station. Since the field is private,
-     * it cannot be accessed directly.
-     * @param other
+     * Accessor for this.tail 
+     * 
+     * @return Station this.tail
+     */
+    public Station getTail() {
+        return this.tail;
+    } // method getHead
+
+    /**
+     * Appends a trainline to the current trainline object
+     * @param other Trainline to append to present object
      */
     public void append(TrainLine other) {
-        if (this.getHead() != null && other.getHead() != null) {
-            this.tail.setNext(other.getHead());
+        // First make sure that the trainline we wish to append is not null or empty
+        if (other != null && other.getHead() != null) {
+            // OK, we have something to append, now how to append it?
+            if (this.head == null) {
+                // If this trainline is empty, we use the other trainline's head and tail
+                this.head = other.getHead();
+            } else {
+                // otherwise, we point this.tail to other.head ae 
+                this.tail.setNext(other.getHead());
+            }
+            // Either way it's the same tail
+            this.tail = other.getTail();
         }
     } // method append
 
