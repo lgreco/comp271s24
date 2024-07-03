@@ -40,4 +40,4 @@ Bidirectional route (employing both `Station.next` and `Station.prev` pointers):
 
 ![Alt text](images/bi.png)
 
-Notice that in the unidirectional objects above, each station has still two points -- the ones that are `null` are omitted. For example, in the unidirectional route from Howard to 95th, each station has a `prev` pointer; because they are all `null` they are ommitted from the picture, for simplicity.
+Notice that in the two unidirectional objects above, each station has still two pointers -- the ones that are `null` are omitted. For example, in the unidirectional route from Howard to 95th, each station has a `prev` pointer; because they are all `null` they are ommitted from the picture, for simplicity.
