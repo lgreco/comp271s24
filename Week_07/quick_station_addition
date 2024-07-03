@@ -1,0 +1,8 @@
+        String[] stationNames = {"Howard", "Jarvis", "Morse", 
+                                "Loyola", "Granville", "Thorndale",
+                                "Bryn Mawr", "Argyle", "Wilson"};
+        Station[] stations = new Station[stationNames.length];
+        for (int i = 0; i < stationNames.length; i++) {
+            stations[i] = new Station(stationNames[i]);
+            redLineSB.addStation(stations[i]);
+        }

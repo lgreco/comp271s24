@@ -19,6 +19,11 @@ public class TrainLine {
         this.numberOfStations = 0;
     } // default constructor
 
+    /** Accessor for number of stations present in this trainline */
+    public int getNumberOfStations() {
+        return this.numberOfStations;
+    } // method getNumberOfStations
+
     /**
      * Add a new station at the end of this trainline. The method creates
      * a new station object, first, with the given name. Then it checks to
@@ -34,26 +39,60 @@ public class TrainLine {
     public void addStation(String name) {
         // Create a new station object with the given name
         Station newStation = new Station(name);
+        // Use addStion(Station) method
+        this.addStation(newStation);
+    } // method addStation
+
+    /**
+     * Add a new station at the end of this trainline. The method takes
+     * a station object and it checks if this line has a head station yet; 
+     * if not, the new station becomes the head station. If this line has a 
+     * head station, the method places the new station after the last station 
+     * in the line and marks that new station the last station in the line.
+     * 
+     * @param station Station object to insert at teh end of the line
+     */
+    public void addStation(Station station) {
         // Check if this trainline has a head station yet or not
         if (this.head == null) {
             // There is no head station in this trainline. Make the
             // new station, just created, the head station and also
             // the tail station of the line and we are done.
-            this.head = newStation;
-            this.tail = newStation;
+            this.head = station;
+            this.tail = station;
         } else {
             // The trainline has an existing head station. Therefore,
             // it also has a known last station (this.tail).
-            this.tail.setNext(newStation); // add new station after tail station
-            this.tail = newStation; // Designate newly added station as tail station
+            this.tail.setNext(station); // add new station after tail station
+            this.tail = station; // Designate newly added station as tail station
         }
         // Update station counter
         this.numberOfStations++;
     } // method addStation
 
-    public int getNumberOfStations() {
-        return this.numberOfStations;
-    }
+    /**
+     * Determines if the linked list contains a loop. A loop forms when
+     * the last station (this.tail) points to another station in the
+     * train line instead of pointing to null. An empty line (this.head==null)
+     * is considered loop-free.
+     * 
+     * @return true if there is a loop, false otherwise
+     */
+    public boolean hasLoop() {
+        boolean loopFound = false;
+        // Perform the check only when the train line is not empty
+        if (this.head != null) {
+            // Create a fast and a slow cursor.
+            Station fast = this.head;
+            Station slow = this.head;
+            while (!loopFound && fast.hasNext() && fast.getNext().hasNext()) {
+                fast = fast.getNext().getNext();
+                slow = slow.getNext();
+                loopFound = (slow == fast);
+            }
+        }
+        return loopFound;
+    } // method hasLoop
 
     /** THIS METHOD IS A STUB ... REPLACE IT WITH YOUR NICE CODE. */
     public boolean contains(String stationName) {
@@ -101,5 +140,4 @@ public class TrainLine {
         return success;
     } // method addAfter
 
-
-}
+} // class TrainLine
