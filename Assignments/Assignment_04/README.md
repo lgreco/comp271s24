@@ -4,8 +4,6 @@ As with *every assignment* in this course, you cannot import anything to your co
 
 Your code must be compliant with the Programmers Pact, as much as possible.
 
-You can test your work by running `SimpleTesting.main`.
-
 ## Search for a station
 
 Using classes `Station` and `TrainLine` in folder `Week_05`, write a method called `contains` that returns true if a station with a specified name exists in a `TrainLine` object and false otherwise.
