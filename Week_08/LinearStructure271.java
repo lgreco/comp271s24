@@ -29,7 +29,7 @@ public class LinearStructure271 implements Queue271<String> {
         boolean isThereRoom = (this.usage < this.underlying.length);
         if (isThereRoom) {
             // ok to add ... take advantage of this.usage to tell what's the
-            // next available positio in the underlying array
+            // next available position in the underlying array
             this.underlying[this.usage++] = s;
         }
         return isThereRoom;
