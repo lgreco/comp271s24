@@ -133,7 +133,7 @@ public class TrainLine {
                     //the previous point set for the new station
                     newStation.setPrev(current); 
                     //If the new station is not the last one, update the next station's previous point
-                    if (newStation.hasNext() != null) {
+                    if (newStation.hasNext()) {
                         newStation.getNext().setPrev(newStation);
                     }
                     // Update the return variable to indicate a successful insertion
