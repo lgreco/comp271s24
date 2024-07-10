@@ -51,7 +51,11 @@ public class TrainLine {
      * in the line and marks that new station the last station in the line.
      * 
      * @param station Station object to insert at teh end of the line
-     */
+     */ 
+    
+     //Unidirectional route from left to right (employing only `Station.next` pointers):
+
+     //Assignment 6
     public void addStation(Station station) {
         // Check if this trainline has a head station yet or not
         if (this.head == null) {
@@ -64,10 +68,34 @@ public class TrainLine {
             // The trainline has an existing head station. Therefore,
             // it also has a known last station (this.tail).
             this.tail.setNext(station); // add new station after tail station
+            station.setPrev(this.tail); // Bidirectional link. The opposite direction 
             this.tail = station; // Designate newly added station as tail station
         }
         // Update station counter
         this.numberOfStations++;
+    }
+    public void leftToRight() {
+        if (this.numberOfStations > 1) { //make sure the starting point is the head
+            this.head.setPrev(null); // make sure the head station's previous is null
+        }
+        while (current != null) { //bidirectional route: Simply sets next pointer from head to the new station.
+            System.out.print(current.getName()); //select the current station which is the head
+            if (current.getNext() != null) {  //next pointer from head to the tail
+                System.out.print();
+            }
+            current = current.getNext(); //select the station after the head to the right
+        }
+        System.out.println();
+    }
+    public void rightToleft() { //unidirectional route: Simply sets next pointer from tail to a previous station and reaches head.
+        if (this.tail != null)  //check that the tail is not equal to null
+        while (current != null) {// check where the current station is and make sure it is not null
+            System.out.print(current.getName()); //print out the current station's name
+            if (current.getPrev() != null) { //go back a station and print out the previous one
+                System.out.print();
+            }
+            current = current.getPrev();
+    }
     } // method addStation
 
     /**

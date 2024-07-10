@@ -130,7 +130,7 @@ public class TrainLine {
             Station current = this.head;
             while (current.hasNext()) {
                 sb.append(String.format("[ %s ] --> ", current.getName()));
-                current = current.getNext()
+                current = current.getNext();
             }
             // Treat the last station in the line
             sb.append(String.format("[ %s ]", tail.getName()));
@@ -140,6 +140,21 @@ public class TrainLine {
 
     /** STUB FOR indexOf */
     public int indexOf(String name) {
-        return -1;
-    } // method indexOf
+        station current = this.head; //begin at the beginning
+        int index = 0; //set index to 0
+        while (current != null) { //make sure it is not empty 
+            if (current.getName().equals(name)) { //check the station name here 
+                return index; 
+            } 
+        }
+        current = current.getNext(); //keep moving the train to the next station or stop
+        index++; //increase index by 1
+        return -1; 
+    }
+    // method indexOf
+    public void append() {
+        if (this.head == null) { //if there are no more stops 
+            sb.append(stationNames); //add stops
+        }
+    }
 }
