@@ -7,7 +7,7 @@ public class SimpleTesting {
     public static void main(String[] args) {
         // Create a small train line and add a few stations to it with names
         // drawn from a String[]
-        TrainLine redLineSB = new TrainLine();
+        TrainLine_Solution redLineSB = new TrainLine_Solution();
         String[] stationNames = { "Howard", "Jarvis", "Morse",
                 "Loyola", "Granville", "Thorndale" };
         for (String name : stationNames) {

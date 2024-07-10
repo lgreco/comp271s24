@@ -1,6 +1,6 @@
 public class Implementation {
     public static void main(String[] args) {
-        TrainLine redLineSB = new TrainLine();
+        TrainLine_Solution redLineSB = new TrainLine_Solution();
         String[] stationNames = {"Howard", "Jarvis", "Morse", 
                                 "Loyola", "Granville", "Bryn Mawr"};
         for (String name: stationNames) {
