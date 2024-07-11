@@ -1,5 +1,7 @@
 # Grading notes for assignment 06
 
+Class `TrainLineBidirectional` is the complete solution based on the advanced analysis below.
+
 ## Analysis 
 
 This problem needs to be solved first on paper. 
