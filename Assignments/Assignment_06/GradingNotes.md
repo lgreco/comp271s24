@@ -33,7 +33,7 @@ And finally, the new station becomes the tail station for the train line:
  this.tail = newStation;
  ```
 
- So really, we need just one extra line in `TrainLine.addStation(Station)` method to work with stations point to the `next` and `prev` objects. That's the line where we assign a value to the new station's `prev` pointer:
+ So really, we need just one extra line in `TrainLine.addStation(Station)` method to work with stations pointing to the `next` and `prev` objects. That's the line where we assign a value to the new station's `prev` pointer:
 
 
  ```java
