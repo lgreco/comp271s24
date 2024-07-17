@@ -9,5 +9,5 @@ public class SimpleLinkedList implements Stack271<String>, Queue271<String> {
 
     /** The last node of the linked list */
     private Node tail;
-
+    
 } // class SimpleLinkedList
