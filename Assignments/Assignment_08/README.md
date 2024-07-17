@@ -47,7 +47,7 @@ Alton\n
 Saint Louis
 ```
 
-You may only traverse the `TrainLine` object once for this method and you cannot use any data types others than `Station` and `String`. If the `TrainLine` object is empty, `listStations` should return the string `"The line is empty."`.
+You may only traverse the `TrainLine` object once for this method and you cannot use any data types others than `Station` and `String` but not as arrays. If the `TrainLine` object is empty, `listStations` should return the string `"The line is empty."`.
 
 ## Detect intersections
 
