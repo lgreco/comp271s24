@@ -12,7 +12,7 @@ Class `Station` has been modified to allow station objects pointing to a downstr
 
 How would you modify the `addStation` method in `TrainLine` to accomodate bidirectional routes?
 
-Notice that there `addStation` is an overloaded method with headers:
+Notice that `addStation` is an overloaded method with headers:
 
 ```java
 void addStation(String name)
