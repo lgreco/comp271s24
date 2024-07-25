@@ -221,20 +221,19 @@ public class TrainLine_Solutions_8 {
         }
     } // method append
 
-    /** Produces a list of stations in the order of traversal */
+    /** Produces a list of stations in the order of traversal. Use StringBuilder to mutable objects */
     public String listStations() {
-        String stationList;
+        StringBuilder stationList = new StringBuilder();
         if (this.head == null) {
-            stationList = EMPTY_LINE_MESSAGE;
+            stationList.append(EMPTY_LINE_MESSAGE);
         } else {
-            stationList = new String("");
             Station current = this.head;
             while (current != null) {
-                stationList = stationList + "\n" + current.getName();
+                stationList.append(String.format("%s\n", current.getName()));
                 current = current.getNext();
             }
         }
-        return stationList;
+        return stationList.toString();
     } // method listStations
 
     /**
@@ -242,39 +241,35 @@ public class TrainLine_Solutions_8 {
      * with the same name. The method stops as soon as an intersection is found.
      * Worst case scenarion, when the two lines intersect at their last stations, on
      * do not intersect at all, the method runs an exhaustive traversal for both
-     * lines.
+     * lines. Nulls are treated as empty lines (no intersectin found)
      */
     public boolean intersects(TrainLine_Solutions_8 other) {
-        boolean intersectionFound = this.head != null && other.getHead() != null;
-        Station thisCurrent = this.head;
-        while (!intersectionFound && thisCurrent != null) {
-            Station otherCurrent = other.getHead();
-            while (!intersectionFound && otherCurrent != null) {
-                intersectionFound = (thisCurrent.getName().equals(otherCurrent.getName()));
-                otherCurrent = otherCurrent.getNext();
+        // Check if two objects are the same
+        boolean intersectionFound = this == other;
+        // If they are not the same, check them thoroughly, but if they are, 
+        // skip the traversals and return true: by definition an trainline
+        // intersects itself
+        if (!intersectionFound) {
+            // Reset boolean to avoid null objects
+            intersectionFound = this.head != null && other.getHead() != null;
+            Station thisCurrent = this.head;
+            while (!intersectionFound && thisCurrent != null) {
+                Station otherCurrent = other.getHead();
+                while (!intersectionFound && otherCurrent != null) {
+                    intersectionFound = (thisCurrent.getName().equals(otherCurrent.getName()));
+                    otherCurrent = otherCurrent.getNext();
+                }
+                thisCurrent = thisCurrent.getNext();
             }
-            thisCurrent = thisCurrent.getNext();
         }
         return intersectionFound;
     } // method intersects
 
     /**
-     * Compares two lines based on their number of train stations.
+     * Compares two lines based on their number of train stations. 
      */
     public int compareTo(TrainLine_Solutions_8 other) {
-        int thisCount = 0;
-        Station thisCurrent = this.head;
-        while (thisCurrent != null) {
-            thisCount++;
-            thisCurrent = thisCurrent.getNext();
-        }
-        int otherCount = 0;
-        Station otherCurrent = other.getHead();
-        while (otherCurrent != null) {
-            otherCount++;
-            otherCurrent = otherCurrent.getNext();
-        }
-        return thisCount - otherCount;
+        return this.numberOfStations - other.getNumberOfStations();
     } // method compareTo
 
 } // class TrainLine
