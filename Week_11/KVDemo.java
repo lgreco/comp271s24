@@ -5,7 +5,7 @@ public class KVDemo {
 
     public static void main(String[] args) {
         HashTable271<Integer, Person> demo = new HashTable271<>();
-        Person[] data = generateRandomPersons(100, 20, 80);
+        Person[] data = generateRandomPersons(500_000, 20, 80);
         for (Person person: data) {
             Integer key = person.getSSN();
             demo.put(key, person);
@@ -14,7 +14,7 @@ public class KVDemo {
         System.out.println("\nFinal description");
         System.out.println(demo.describe());
         System.out.println();
-        System.out.println(demo);
+        //System.out.println(demo);
     } // method main
    
 

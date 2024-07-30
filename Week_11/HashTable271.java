@@ -175,7 +175,7 @@ public class HashTable271<K, V> {
      */
     private int findIndex(int hash, int length) {
         return ((hash < 0) ? -hash : hash) % length;
-    }
+    } // method findIndex
 
     /** Simple descriptive statistics of current object */
     public String describe() {
@@ -203,7 +203,7 @@ public class HashTable271<K, V> {
                 KVNode<K, V> current = this.table[i];
                 while (current != null) {
                     Person person = (Person) current.getValue();
-                    sb.append(String.format("%s %s -> ", person.getFirstName(), person.getLastName()));
+                    sb.append(String.format("%s %s %d -> ", person.getFirstName(), person.getLastName(), person.getSSN()));
                     current = current.getNext();
                 }
             }
