@@ -35,6 +35,7 @@ public class HashTable271<K, V> {
     private int[] chainLength;
     /** Experimental: tracks the longest chain in this.table */
     private int longestChainLength;
+    
     /* --------------------------- Constructors ---------------------------- */
 
     /**
@@ -110,6 +111,8 @@ public class HashTable271<K, V> {
         // If load factor exceeds threshold, rehash the structure
         if (this.loadFactor > this.threshold) {
             this.rehash();
+            System.out.println("\nAfter rehashing:");
+            System.out.println(this.describe());
         }
     } // method put
 
@@ -210,7 +213,7 @@ public class HashTable271<K, V> {
 
     /* ----------------------- Formatting constants ------------------------ */
 
-    private static final String FMT_FIELD_DESCRIPTION = "\n%15s: ";
+    private static final String FMT_FIELD_DESCRIPTION = "\n%25s: ";
     private static final String STR_ARRAY_USAGE = "Array usage";
     private static final String FMT_ARRAY_USAGE = FMT_FIELD_DESCRIPTION + "%d/%d";
     private static final String STR_NODES = "Nodes";

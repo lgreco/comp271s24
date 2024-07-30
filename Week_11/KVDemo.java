@@ -11,7 +11,10 @@ public class KVDemo {
             demo.put(key, person);
         }
         //System.out.println(demo);
+        System.out.println("\nFinal description");
         System.out.println(demo.describe());
+        System.out.println();
+        System.out.println(demo);
     } // method main
    
 
@@ -20,7 +23,9 @@ public class KVDemo {
      * names, last names, Social Security Numbers (SSNs), and dates of birth (DOBs).
      * Each will have an age between 18 and 81 years old.
      *
-     * @param numberOfPersons the number of Person objects to generate
+     * @param numberOfPersons int the number of Person objects to generate
+     * @param minAge int minimum age for random dates of birth
+     * @param maxAge int maximum age for random dates of birth
      * @return an array containing the generated Person objects
      */
     public static Person[] generateRandomPersons(int numberOfPersons, int minAge, int maxAge) {
