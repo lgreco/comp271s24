@@ -3,12 +3,12 @@ import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
 public class Person {
-    private String firstName;
-    private String lastName;
-    private LocalDate dob;
-    private int ssn;
+    final private String firstName;
+    final private String lastName;
+    final private LocalDate dob;
+    final private int ssn;
 
-    public Person(int ssn, String firstName, String lastName, LocalDate dob) {
+    public Person(final int ssn, final String firstName, final String lastName, final LocalDate dob) {
         this.ssn = ssn;
         this.firstName = firstName;
         this.lastName = lastName;
