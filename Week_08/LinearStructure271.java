@@ -1,6 +1,6 @@
 package Week_08;
 
-public class LinearStructure271 implements Queue271<String> {
+public class LinearStructure271 implements Queue271<String>, Stack271<String> {
 
     // What's the underlying structure for this class?
     private String[] underlying;
@@ -44,13 +44,35 @@ public class LinearStructure271 implements Queue271<String> {
      */
     public String remove() {
         String firstInLine = this.underlying[0];
-        for (int i=1; i < this.usage; i++) {
-            this.underlying[i-1] = this.underlying[i];
-        }
-        this.underlying[this.usage-1] = null;
         if (this.usage > 0) {
-            this.usage--;
+            // If queue is not empty, move everyone one position closer to the front
+            for (int i = 1; i < this.usage; i++) {
+                this.underlying[i - 1] = this.underlying[i];
+            }
+            this.underlying[--this.usage] = null;
         }
         return firstInLine;
+    } // method remove
+
+    public boolean push(String s) {
+        boolean thereIsRoom = this.usage < this.underlying.length;
+        if (thereIsRoom) {
+            // Move every element one position to the right. Notice the 
+            // direction of the shifts: we begin from the back and work
+            // our way to the front of the array.
+            for (int i = this.usage; i >=1; i--) {
+                this.underlying[i] = this.underlying[i-1];
+            }
+            // Overwrite first position with new data
+            this.underlying[0] = s;
+            // Update the usage for the object
+            this.usage++;
+        }
+        return thereIsRoom;
+    } // method push
+
+    public String pull() {
+        // wraps to Queue.remove
+        return this.remove();
     }
 }
