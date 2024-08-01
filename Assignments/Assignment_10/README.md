@@ -133,7 +133,8 @@ Write a method `int[] sort(int[] array)` that takes an integer array with $2^n$ 
 #### Put it together
 
 
-For this problem submit a Java class with name `Sorting271`. Your class should include the two methods described above, and a `main` method to test your code. You cannot use any methods from `System` or `java.util.Arrays`, except for `System.out.println`, `System.out.printf`, and `Arrays.toString`. You may also include any auxiliary methods you require.
+For this problem submit a Java class with name `Sorting271`. Your class should include the two methods described above, and a `main` method to test your code. You cannot use any methods from `System` or `java.util.Arrays`, except for `System.out.println`, `System.out.printf`, and `Arrays.toString`. You may also include any auxiliary methods you desire write.
+
 
 It is imperative that your code is in full compliance with the Programmer's Pact.
 
@@ -142,7 +143,7 @@ Testing code will be provided by Friday 8/2/24.
 
 ### Problem 2: reverse list printing
 
-Using classes `TrainLine` and `Station` write a method `String TrainLine.reverseListStations()` that returns a string with the names of the train station in reverse order. You may traverse the `TrainLine` object only once. 
+Using classes `TrainLine` and `Station` (from the solutions to Assignment 8) write a method `String TrainLine.reverseListStations()` that returns a string with the names of the train station in reverse order. You may traverse the `TrainLine` object only once. 
 
  For example, if a train line is instantiated and populated as:
 
@@ -184,6 +185,8 @@ Chicago
 ```
 
 You may only traverse the `TrainLine` object once for this method and you cannot use any data types others than `Station` and `String` but not as arrays. If the `TrainLine` object is empty, `reverseListStations` should return the string `"The line is empty."`.
+
+For this problem submit a fresh copy of Java class `TrainLine`. 
 
 
 ## Part III
