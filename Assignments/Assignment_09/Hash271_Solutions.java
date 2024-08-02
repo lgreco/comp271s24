@@ -50,7 +50,7 @@ public class Hash271_Solutions {
      * @param node Node to chain to the underlying array
      */
     public void put(Node node) {
-        // Operate only is node is not null
+        // Operate only if node is not null
         if (node != null) {
             // Use the node's hashcode to determine is position in
             // the underlying array

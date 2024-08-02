@@ -205,7 +205,7 @@ In the formula above, "`s[i]` is the  i-th character of the string, `n` is the l
 65*31^2 + 66^31^1 + 67*31^0 = 64578
 ```
 
-This technique has a limitation. `int` primities in Java can be in the range -2147483648 to 2147483647, i.e., -2^31 to +2^31-1. Let's say, for simplicity, that the larger positive `int` is 2^31. The `String` hash code uses powers of 31. That's almost 32 which can be written as 2^5. So a string with five characters will have a hash code approximately equal to
+This technique has a limitation. `int` primitives in Java can be in the range -2147483648 to 2147483647, i.e., -2^31 to +2^31-1. Let's say, for simplicity, that the larger positive `int` is 2^31. The `String` hash code uses powers of 31. That's almost 32 which can be written as 2^5. So a string with five characters will have a hash code approximately equal to
 
 ```
 s[0]*(2^5)^4 + s[1]*(2^5)^3 + ...  =  s[0]*2^20 + s[1]*2^1 + ...
@@ -217,7 +217,7 @@ This gets us pretty close to the edge of `int` ranges. A string with six charact
 "airport".hashCode() // returns -991666997
 ```
 
-*That's ok!* As long as we anticipate the overflow, we can handle it. For example, when hashing a string using its built-in `hashcode` we can correct negative values first, like so:
+*That's ok!* As long as we anticipate the overflow, we can handle it. For example, when hashing a string using its built-in `hashcode`, we can correct negative values first, like so:
 
 ```java
 int hashCode = ourString.hashCode();
