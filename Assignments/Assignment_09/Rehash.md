@@ -1,4 +1,4 @@
-# Technical note: `rehash()` and `put`
+# Technical note: `rehash` and `put`
 
 This note discusses the redundancy between methods `put` and `rehash` in the solution for assignment 9. The methods are shown below. Comments have removed for brevity.
 
