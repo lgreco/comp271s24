@@ -52,7 +52,7 @@ private void rehash() {
 
 ## Similarities and how to eliminate them
 
-Both methods compute the position in an array of linked lists where to place a given node. And both methods place the node at the computed position, pushing existing nodes under the new node, if necessary.
+Both methods compute the position in an array of linked lists where they place a given node. And both methods place the node at the computed position, pushing existing nodes under the new node, if necessary.
 
 Essntially, what `rehash` does is to create an array of linked lists, populate it, and then replace `this.foundation` with it. This is the equivalent of creating a hew `Hash271` object. So `rehash` can be reduced to the following (pseudo)code.
 
