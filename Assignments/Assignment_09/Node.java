@@ -37,26 +37,12 @@ class Node {
     /** String representation */
     public String toString() {
         return String.format("%03d|%s", this.hashCode(), this.data);
-    } // method toString, e.g. Node("Arjun"), node.toString = 065|Arjun
+    } // method toString, e.g. Node("Aragorn"), node.toString = 065|Aragorn
 
     /** Hash code */
     public int hashCode() {
-        /*
-        int sum = 0;
-        if (this.data != null && this.data.length() > 0) {
-            for (int i=0; i < this.data.length(); i++) {
-                sum += (int) this.data.charAt(i);
-            }
-        }
-        return sum; */
+        // Simplistic version: just the ASCII value of the first character of this.data
         return (this.data != null && this.data.length() > 0) ? (int) this.data.charAt(0) : 0;
-        /*
-         * if (this.data != null && this.data.length() > 0) {
-         *   return (int) this.data.charAt(0);
-         * } else {
-         *   return 0;
-         * }
-         */
-    }
+    } // method hashCode
 
 } // class Node
