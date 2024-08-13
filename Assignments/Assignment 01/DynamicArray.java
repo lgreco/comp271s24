@@ -55,4 +55,28 @@ public class DynamicArray {
         this.position++;
     } // method add
     
+    public void resize() {
+        // this is used to create a new array wuth double the size of the current on when needed
+        String[] newData = new String[this.data.length * 2];
+
+        for (int i =0; i < this.data.length; i++) {
+            newData[i] = this.data[i];
+        }
+        //replacing array
+        this.data = newData;
+    } //resize method
+    /** 
+     * return is true when the strign exists in the array data and false if not.
+     * @param string the strignt o check for @return true if string exists in array data also False if not
+     */
+
+    public boolean contains (String string) {
+        // iteration over the array to check for string
+        for (int i = 0; i < this.position; i++) {
+            if (this.data[i].equals(string)) {
+                return true; //when the string is found
+            }
+        }
+        return false; //when string is not found
+    }
 } // class DynamicArray
