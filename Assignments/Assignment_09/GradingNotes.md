@@ -196,22 +196,22 @@ which is the sum of the ASCII values of the first two letters in `this.data` (as
 
 In Java, class `String` defines the hash code for each string as a binary power series.
 
-```
-s[0]*31^(n-1) + s[1]*31^(n-2)+ ... + s[n-1]
-```
-In the formula above, "`s[i]` is the  i-th character of the string, `n` is the length of the string, and `^` indicates exponentiation". (Source: Java String Class). For example, the hash code for string `"ABC"` will be:
+$$s[0]\cdot 31^{n-1} + s[1]\cdot 31^{n-2}+\ldots s[n-1]\cdot 31^0$$
 
-```
-65*31^2 + 66^31^1 + 67*31^0 = 64578
-```
 
-This technique has a limitation. `int` primitives in Java can be in the range -2147483648 to 2147483647, i.e., -2^31 to +2^31-1. Let's say, for simplicity, that the larger positive `int` is 2^31. The `String` hash code uses powers of 31. That's almost 32 which can be written as 2^5. So a string with five characters will have a hash code approximately equal to
+In the formula above, $s[i]$ is the $i$-th character of the string, and $n$ is the length of the string. (Source: Java String Class). For example, the hash code for string `"ABC"` will be:
 
-```
-s[0]*(2^5)^4 + s[1]*(2^5)^3 + ...  =  s[0]*2^20 + s[1]*2^1 + ...
-```
+$$
+65\cdot 31^2 + 66\cdot 31^1 + 67\cdot 31^0 = 64578
+$$
 
-This gets us pretty close to the edge of `int` ranges. A string with six characters will have a hash sum that starts with `s[0]*2^25. That's *only* 64 times less than the maximum value. So strings with 6 or more characters can cause an *arithmetic overflow*. For example,
+This technique has a limitation. `int` primitives in Java can be in the range -2147483648 to 2147483647, i.e., $-2^{31}$ to $2^{31}-1$. Let's say, for simplicity, that the larger positive `int` is $2^{31}$. The `String` hash code uses powers of 31. That's almost 32 which can be written as $2^5$. So a string with five characters will have a hash code approximately equal to
+
+$$
+s[0]\cdot (2^5)^4 + s[1]\cdot (2^5)^3 + ...  =  s[0]\cdot 2^{20} + s[1]\cdot 2^{15} + ...
+$$
+
+This gets us pretty close to the edge of `int` ranges. A string with six characters will have a hash sum that starts with $s[0]\cdot 2^{25}$. That's *only* 64 times less than the maximum value. So strings with 6 or more characters can cause an *arithmetic overflow*. For example,
 
 ```java
 "airport".hashCode() // returns -991666997
