@@ -1,0 +1,9 @@
+
+You will first create the station class first. Then you will need to include your class attributes next ie. station names, rounting infomtation, color of the train line, starting and ending destination. 
+public String toString() {
+      return getName;
+}
+
+maybe even use system out print line and convert that to a string after using your class attributes to form a class contructor. 
+
+This is the idea that comes first to mind to play around and print the text to string method.
